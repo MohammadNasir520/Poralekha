@@ -16,7 +16,7 @@ const Quiz = () => {
           <div>
             {
                 quizDetails.data.questions.map(question=> 
-                <div className='question-container border border-primary m-5 py-2 text-light '
+                <div className='question-container border border-primary m-5 py-2 text-light  '
 
                      key={question.id}>
 
