@@ -3,19 +3,24 @@ import { useLoaderData } from 'react-router-dom';
 import Option from '../Options/Option';
 import './Quiz.css'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 import { EyeIcon} from '@heroicons/react/24/solid'
 
 
 const Quiz = () => {
     const quizDetails=useLoaderData();
-    console.log(quizDetails.data)
+    
     const {name}=quizDetails.data
     
-    const showToast=(cAns)=>{
-console.log(cAns)
- 
-    }
+    const showToast=(getOption)=>{
+        
+        toast(getOption.correctAnswer)
+         console.log(getOption)
+          
+             }
    
     return (
         <div>
@@ -31,7 +36,7 @@ console.log(cAns)
                     {/* question */}
                     <div className='question-icon'>
                         <h4 className='question  '>{question.question}</h4>
-                        <EyeIcon  className=" icon text-blue-500"/>
+                        <EyeIcon onClick={()=>showToast(question)} className=" icon text-blue-500"/>
                     </div>
 
 
