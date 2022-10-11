@@ -9,6 +9,20 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
+
+.icon{
+    height: 30px;
+    width: 35px;
+    height: 30px;
+   
+}
+.question-icon{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    background-color: darkblue;
+    align-items: center;
+}
 @media screen and (max-width: 768px) {
     .option{
         grid-template-columns:1fr;

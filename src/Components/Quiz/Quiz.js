@@ -2,6 +2,11 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Option from '../Options/Option';
 import './Quiz.css'
+
+
+import { EyeIcon} from '@heroicons/react/24/solid'
+
+
 const Quiz = () => {
     const quizDetails=useLoaderData();
     console.log(quizDetails.data)
@@ -24,7 +29,10 @@ console.log(cAns)
                      key={question.id}>
 
                     {/* question */}
-                    <h4 className='question  '>{question.question}</h4>
+                    <div className='question-icon'>
+                        <h4 className='question  '>{question.question}</h4>
+                        <EyeIcon  className=" icon text-blue-500"/>
+                    </div>
 
 
                     {/* options */}
@@ -51,6 +59,8 @@ console.log(cAns)
                 
                 </div>)
             }
+
+
           </div>
         </div>
     );
