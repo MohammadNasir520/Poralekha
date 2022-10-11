@@ -1,15 +1,17 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Option from '../Options/Option';
 import './Quiz.css'
 const Quiz = () => {
     const quizDetails=useLoaderData();
     console.log(quizDetails.data)
-    // console.log(quizDetails.data.questions.map(question=> console.log(question)))
     const {name}=quizDetails.data
-    //  const questionss =quizDetails.data.questions.map(question=> question);
-    //  const question=questionss.find(q=> q.id===questionss.id)
-    //  console.log(question);
-
+    
+    const showToast=(cAns)=>{
+console.log(cAns)
+ 
+    }
+   
     return (
         <div>
           <h2>  Take a Quize about : <span className='text-success'>{name}</span> </h2>
@@ -27,19 +29,21 @@ const Quiz = () => {
 
                     {/* options */}
                     <div className='option'>
-                        {
-                            question.options.map(option=>
-                                
-                                 <p className=' mx-5  m-2   ' key={option.id}>
 
-                                  <form action="" className=''>
-                                   <label  htmlFor={option}>
-                                   <input type="checkbox" name="option" id={option} /> {option}
-                                   </label>
-                                  </form>
+
+                      
+                        {
+                           
+                            question.options.map((option,index)=> <Option
+
+                            option={option}
+                            key={index}
+                            question={question}
+                        ></Option>
+                                    )
                                     
-                                    </p>)
                         }
+                       
                     </div>
                 
 

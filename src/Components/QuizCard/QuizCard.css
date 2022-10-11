@@ -1,5 +1,8 @@
 .quiz{
     border: 1px solid gray;
+    background-color: darkgrey;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .quiz img {
