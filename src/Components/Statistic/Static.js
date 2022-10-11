@@ -9,14 +9,14 @@ const Static = () => {
     console.log(data)
     return (
      
-           <ResponsiveContainer width='100%' height="100%">
+          
             <BarChart   width={400} height={400} data={data}>
             <Bar dataKey={"total"} fill="#8884d8" ></Bar>
             <XAxis></XAxis>
             <YAxis></YAxis>
             <Tooltip></Tooltip>
             </BarChart>
-            </ResponsiveContainer>
+           
         
     );
 };
