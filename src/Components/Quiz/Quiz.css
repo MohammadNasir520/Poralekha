@@ -1,6 +1,9 @@
 .question-container{
-    background-color: rgb(36, 36, 56);
+    background-color: rgb(31, 31, 63);
     border-radius: 10px;
+}
+.question{
+    background-color: darkblue;
 }
 .option{
     display: grid;

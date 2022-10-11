@@ -24,7 +24,7 @@ console.log(cAns)
                      key={question.id}>
 
                     {/* question */}
-                    <h4>{question.question}</h4>
+                    <h4 className='question  '>{question.question}</h4>
 
 
                     {/* options */}
