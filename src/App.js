@@ -3,9 +3,9 @@ import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './Main/Main';
 import Home from './Components/Home/Home';
-import Statistics from './Components/Statistics/Statistics';
 import Blogs from './Components/Blogs/Blogs';
 import Quiz from './Components/Quiz/Quiz';
+import Static from './Components/Statistic/Static';
 
 function App() {
   const router=createBrowserRouter([
@@ -34,7 +34,7 @@ function App() {
         {
           path:'/statistics',
           loader:()=> fetch('https://openapi.programming-hero.com/api/quiz'),
-          element:<Statistics></Statistics>
+          element:<Static></Static>
         },
         {
           path:'/quiz/:quizId',
