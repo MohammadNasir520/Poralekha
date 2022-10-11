@@ -16,6 +16,7 @@ const Quiz = () => {
           <div>
             {
                 quizDetails.data.questions.map(question=> 
+                    
                 <div className='question-container border border-primary m-5 py-2 text-light  '
 
                      key={question.id}>
@@ -25,14 +26,19 @@ const Quiz = () => {
 
 
                     {/* options */}
-                    <div>
+                    <div className='option'>
                         {
                             question.options.map(option=>
-                                 <div className=' mx-5'>
+                                
+                                 <p className=' mx-5  m-2   ' key={option.id}>
 
-                                    <p>{option}</p>
+                                  <form action="" className=''>
+                                   <label  htmlFor={option}>
+                                   <input type="checkbox" name="option" id={option} /> {option}
+                                   </label>
+                                  </form>
                                     
-                                    </div>)
+                                    </p>)
                         }
                     </div>
                 
