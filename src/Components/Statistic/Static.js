@@ -8,7 +8,7 @@ const Static = () => {
     const data=loadeddata.data;
     console.log(data)
     return (
-     
+     <div className='rechart'>
           <ResponsiveContainer width="80%" height="100%" >
             <BarChart   width={400} height={400} data={data}>
             <Bar dataKey={"total"} fill="#8884d8" ></Bar>
@@ -17,7 +17,7 @@ const Static = () => {
             <Tooltip></Tooltip>
             </BarChart>
             </ResponsiveContainer>
-           
+            </div>
         
     );
 };
