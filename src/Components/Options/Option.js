@@ -1,6 +1,7 @@
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import "./option.css"
 
 const Option = ({option,question}) => {
   
@@ -23,7 +24,7 @@ const Option = ({option,question}) => {
                <div className=' mx-5  m-2   '>
 
 
-               <p className='' onClick={()=>showToast(option)}>{option}</p>
+               <p className='option' onClick={()=>showToast(option)}>{option}</p>
 
                <ToastContainer 
                position='top-center'

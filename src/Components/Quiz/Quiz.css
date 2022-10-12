@@ -8,12 +8,13 @@
 .option{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  
 }
 
 .icon{
     height: 30px;
     width: 35px;
-    height: 30px;
+   font-size: 40px;
    
 }
 .question-icon{
@@ -26,5 +27,11 @@
 @media screen and (max-width: 768px) {
     .option{
         grid-template-columns:1fr;
+    }
+    .icon{
+        height: 25px;
+        width: 25px;
+      
+       
     }
 }

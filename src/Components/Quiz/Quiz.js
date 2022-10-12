@@ -36,7 +36,7 @@ const Quiz = () => {
                     {/* question */}
                     <div className='question-icon'>
                         <h4 className='question  '>{question.question}</h4>
-                        <EyeIcon onClick={()=>showToast(question)} className=" icon text-blue-500"/>
+                       <div> <EyeIcon onClick={()=>showToast(question)} className=" icon text-blue-500"/></div>
                     </div>
 
 
