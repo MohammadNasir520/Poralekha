@@ -6,12 +6,14 @@ import Home from './Components/Home/Home';
 import Blogs from './Components/Blogs/Blogs';
 import Quiz from './Components/Quiz/Quiz';
 import Static from './Components/Statistic/Static';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
 
 function App() {
   const router=createBrowserRouter([
     {
       path: '/',
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children:[
         {
           path: '/',
@@ -43,8 +45,13 @@ function App() {
           },
           element:<Quiz></Quiz>
         }
+       
+       
       ]
+   
+
     }
+    
   ])
   return (
     <div className="App">
