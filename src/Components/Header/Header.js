@@ -17,7 +17,7 @@ function Header() {
           <h5>Topics</h5>
           <ol>
             <h6>Html</h6>
-            <h6>Css</h6>
+            <h6>Git</h6>
             <h6>Javascript</h6>
             <h6>React</h6>
           </ol>
