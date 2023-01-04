@@ -1,37 +1,49 @@
 import React from 'react';
+import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./option.css"
 
-const Option = ({option,question}) => {
-  
-   const showToast=(getOption)=>{
-       const correctAns=question.correctAnswer;
-       if (correctAns === getOption){
-        toast('correct answer')
-       }
-       else{
-        toast('incorrect');
-       }
-       console.log(correctAns);
-       
+
+const Option = ({ option, question, setCorrectCount, correctCount }) => {
+    const [selected, setSelected] = useState('')
+    console.log(selected)
+    const [classes, setClasses] = useState('')
+
+
+    console.log(classes);
+    console.log(selected)
+    const handleOption = (getOption) => {
+        setSelected(getOption)
+        const correctAns = question.correctAnswer;
+        if (correctAns === getOption) {
+
+            setClasses('correct')
+            setCorrectCount(correctCount + 1)
+        }
+        else {
+
+            setClasses('incorrect')
+        }
+        console.log(correctAns);
+
         console.log(getOption)
-         
-            }
-           
+
+    }
+
     return (
         <div>
-               <div className=' mx-5  m-2   '>
+            <div className=' mx-5  m-2   '>
 
 
-               <p className='option' onClick={()=>showToast(option)}>{option}</p>
+                <button className={`option ${classes} `} disabled={selected} onClick={() => handleOption(option)}>{option}</button >
 
-               <ToastContainer 
-               position='top-center'
-               />
- 
-  
-  </div>
+                <ToastContainer
+                    position='top-center'
+                />
+
+
+            </div>
         </div>
     );
 };
