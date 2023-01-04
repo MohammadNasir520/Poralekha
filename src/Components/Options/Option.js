@@ -33,7 +33,7 @@ const Option = ({ option, question, setCorrectCount, correctCount }) => {
 
     return (
         <div>
-            <div className=' mx-5  m-2   '>
+            <div className=' mx-3  my-2   '>
 
 
                 <button className={`option ${classes} `} disabled={selected} onClick={() => handleOption(option)}>{option}</button >

@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 import { EyeIcon } from '@heroicons/react/24/solid'
+import AQuiz from '../AQuiz/AQuiz';
 
 
 const Quiz = () => {
@@ -35,7 +36,7 @@ const Quiz = () => {
             <div>
                 {
                     quizDetails.data.questions.map(question =>
-
+                        // <AQuiz question={question}></AQuiz>
                         <div className='question-container border border-primary m-5 py-2 text-light  '
 
                             key={question.id}>
@@ -48,7 +49,7 @@ const Quiz = () => {
 
 
                             {/* options */}
-                            <div className='option'>
+                            <div className='options'>
 
 
 
@@ -74,7 +75,8 @@ const Quiz = () => {
 
 
 
-                        </div>)
+                        </div>
+                    )
                 }
 
 
