@@ -13,8 +13,10 @@ const Option = ({ option, question, setCorrectCount, correctCount }) => {
 
     console.log(classes);
     console.log(selected)
+
     const handleOption = (getOption) => {
         setSelected(getOption)
+
         const correctAns = question.correctAnswer;
         if (correctAns === getOption) {
 
@@ -36,7 +38,7 @@ const Option = ({ option, question, setCorrectCount, correctCount }) => {
             <div className=' mx-3  my-2   '>
 
 
-                <button className={`option ${classes} `} disabled={selected} onClick={() => handleOption(option)}>{option}</button >
+                <button className={`option ${classes} `} disabled={selected} onClick={() => { handleOption(option) }}>{option}</button >
 
                 <ToastContainer
                     position='top-center'

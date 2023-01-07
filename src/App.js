@@ -7,54 +7,59 @@ import Blogs from './Components/Blogs/Blogs';
 import Quiz from './Components/Quiz/Quiz';
 import Static from './Components/Statistic/Static';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
+import Result from './Pages/Result/Result';
 
 function App() {
-  const router=createBrowserRouter([
+  const router = createBrowserRouter([
     {
       path: '/',
       element: <Main></Main>,
       errorElement: <ErrorPage></ErrorPage>,
-      children:[
+      children: [
         {
           path: '/',
-          loader: ()=> {
+          loader: () => {
             return fetch('https://openapi.programming-hero.com/api/quiz')
           },
-          element:<Home></Home>
+          element: <Home></Home>
         },
         {
           path: '/home',
-          loader: ()=> {
+          loader: () => {
             return fetch('https://openapi.programming-hero.com/api/quiz')
           },
-          element:<Home></Home>
+          element: <Home></Home>
         },
         {
-          path:'/blogs',
-          element:<Blogs></Blogs>
+          path: '/blogs',
+          element: <Blogs></Blogs>
         },
         {
-          path:'/statistics',
-          loader:()=> fetch('https://openapi.programming-hero.com/api/quiz'),
-          element:<Static></Static>
+          path: '/statistics',
+          loader: () => fetch('https://openapi.programming-hero.com/api/quiz'),
+          element: <Static></Static>
         },
         {
-          path:'/quiz/:quizId',
-          loader: ({params})=> {
+          path: '/quiz/:quizId',
+          loader: ({ params }) => {
             return fetch(`https://openapi.programming-hero.com/api/quiz/${params.quizId}`)
           },
-          element:<Quiz></Quiz>
+          element: <Quiz></Quiz>
+        },
+        {
+          path: '/result',
+          element: <Result></Result>
         }
-       
-       
+
+
       ]
-   
+
 
     }
-    
+
   ])
   return (
-    <div className="App">
+    <div className="App ">
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
