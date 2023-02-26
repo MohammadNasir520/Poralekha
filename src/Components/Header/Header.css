@@ -1,0 +1,32 @@
+.header{
+    width: 100%;
+    height: 400px;
+  
+    background-image: url('https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165862108/original/01d807063755c66e73ad359fa2c8787462e938bb/code-javascript-es6-with-react-html-css-bootstrap-git.jpg');
+
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    
+
+}
+.header h4{
+    font-size: 3vw;
+}
+.details{
+    
+    width: 50%;
+    height: 70%;
+}
+@media screen and (min-width: 769px) {
+    .details{
+    
+       
+        height: 90%;
+    }
+    .header h4{
+        font-size: 2vw;
+    }
+}

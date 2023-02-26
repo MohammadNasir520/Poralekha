@@ -1,0 +1,12 @@
+.quizs{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    border-radius: 10px;
+    margin:50px 20px;
+}
+@media screen and (max-width: 768px) {
+    .quizs{
+        grid-template-columns:1fr;
+    }
+}

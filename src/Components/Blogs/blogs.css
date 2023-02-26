@@ -1,0 +1,22 @@
+.container{
+    background-color: gray;
+    color: aliceblue;
+    
+}
+
+.blog{
+    background-color: darkblue;
+    color: aliceblue;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+   
+}
+@media screen and (max-width: 768px) {
+    .container h2{
+        font-size: 4vw;
+    }
+    .container p{
+        font-size: 3vw;
+    }
+}
