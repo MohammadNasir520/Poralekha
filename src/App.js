@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import toast, { Toaster } from 'react-hot-toast';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './Main/Main';
 import Home from './Components/Home/Home';
@@ -10,6 +11,9 @@ import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Result from './Pages/Result/Result';
 import AddQuestion from './Pages/AddQuestion';
 import CorrectAnswer from './Pages/CorrectAnswer/CorrectAnswer';
+import Topics from './Pages/Topics/Topics';
+
+
 
 function App() {
   const router = createBrowserRouter([
@@ -44,7 +48,7 @@ function App() {
         {
           path: '/quiz/:quizId',
           loader: ({ params }) => {
-            return fetch(`http://localhost:5000/questions/${params.quizId}`)
+            return fetch(` https://poralekha-server.vercel.app/questions/${params.quizId}`)
             // return fetch(`https://openapi.programming-hero.com/api/quiz/${params.quizId}`)
           },
           element: <Quiz></Quiz>
@@ -60,13 +64,15 @@ function App() {
         {
           path: '/coorrectAnswer/:id',
           loader: ({ params }) => {
-            return fetch(`http://localhost:5000/questions/${params.id}`)
+            return fetch(` https://poralekha-server.vercel.app/questions/${params.id}`)
             // return fetch(`https://openapi.programming-hero.com/api/quiz/${params.quizId}`)
           },
           element: <CorrectAnswer />
         },
-
-
+        {
+          path: '/topic/:name',
+          element: <Topics></Topics>
+        },
       ]
 
 
@@ -76,6 +82,7 @@ function App() {
   return (
     <div className="App ">
       <RouterProvider router={router}></RouterProvider>
+      <Toaster />
     </div>
   );
 }

@@ -1,10 +1,28 @@
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import { addQuestion, postVocabulary } from '../api/AddQuestinApi';
 
 const AddQuestion = () => {
     const [questions, setQuestions] = useState([])
     // const [correctAnswer, setCorrectAnswer] = useState("")
     // console.log(correctAnswer)
+
+
+    const [loading, setLoading] = useState(false)
+    const [name, setName] = useState("")
+    const [topic, setTopic] = useState("")
+    console.log(name)
+
+    const handleNameChange = (event) => {
+        event.preventDefault()
+        setName(event.target.value)
+        console.log(event.target.value)
+    }
+    const handleTopicChange = (event) => {
+        event.preventDefault()
+        setTopic(event.target.value)
+        console.log(event.target.value)
+    }
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -18,7 +36,8 @@ const AddQuestion = () => {
         const correctAnswer3 = event.target.check3.checked
         const correctAnswer4 = event.target.check4.checked
 
-        const topic = event.target.topic.value;
+        // const name = event.target.name.value;
+        // const topic = event.target.topic.value;
 
         let correctAnswer;
         if (correctAnswer1 === true) {
@@ -45,6 +64,7 @@ const AddQuestion = () => {
             question,
             options,
             correctAnswer,
+            name,
             topic
         }
         console.log(questions);
@@ -57,13 +77,19 @@ const AddQuestion = () => {
         // }
         if (questions.correctAnswer) {
             // save questions
+            setLoading(true)
+
             addQuestion(questions)
                 .then(data => {
                     console.log(data);
                     event.target.reset()
+
+                    setLoading(false)
+                    toast.success("question added")
                 })
                 .catch(error => {
                     console.log(error)
+
                 })
         }
 
@@ -73,13 +99,39 @@ const AddQuestion = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
+                <div className='d-flex justify-content-center gap-2'>
+                    <div>
+                        <p>Name</p>
+                        <select
+                            onChange={handleNameChange}
+                            defaultValue={name}
+
+                        >
+                            <option value={name} selected>{name ? name : "select Name"}</option>
+                            <option value={"English"}>English</option>
+                            <option value={"English2"}>English2</option>
+
+                            <option>vocabulary</option>
+                            <option>BCS</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Topic</p>
+                        <select name='topic'
+                            onChange={handleTopicChange}
+                            defaultValue={topic}
+                        >
+                            <option value={topic} selected>{topic ? topic : "select Topic"}</option>
+                            <option >Noun</option>
+                            <option>Pronoun</option>
+
+                            <option>Adjective</option>
+                            <option>Verb</option>
+                        </select>
+                    </div>
+                </div>
 
 
-                <select name='topic'>
-                    <option>English</option>
-                    <option>vocabulary</option>
-                    <option>BCS</option>
-                </select>
 
                 <p>  Question</p>
                 <input type="text" name="question" id="" required />
@@ -101,7 +153,7 @@ const AddQuestion = () => {
                 <input type="text" name="option4" id="4" required />
 
                 <br />
-                <button>Submit</button>
+                <button className='btn btn-primary mt-3'>{loading ? "uploading" : 'Submit'} </button>
             </form>
         </div>
     );

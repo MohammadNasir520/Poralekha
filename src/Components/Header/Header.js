@@ -10,16 +10,16 @@ function Header() {
   };
 
   return (
-    <div className="header">
+    <div className="header ">
       <div className="details">
-        <h4> Test Your Programming skill by Taking Our Quiz</h4>
+        <h4> Test Your job preparation skill by Taking Our Quiz</h4>
         <div>
-          <h5>Topics</h5>
+          <h1>Poralekha</h1>
           <ol>
-            <h6>Html</h6>
-            <h6>Git</h6>
+            <p>Study and Shine  Your Life</p>
+            {/* <h6>Git</h6>
             <h6>Javascript</h6>
-            <h6>React</h6>
+            <h6>React</h6> */}
           </ol>
         </div>
       </div>

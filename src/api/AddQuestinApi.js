@@ -1,7 +1,7 @@
 
 
 export const addQuestion = async (questions) => {
-    const res = await fetch("http://localhost:5000/questions", {
+    const res = await fetch("https://poralekha-server.vercel.app/questions", {
         method: "PUT",
         headers: {
             'content-type': "application/json"
@@ -12,7 +12,7 @@ export const addQuestion = async (questions) => {
     return data;
 }
 export const postVocabulary = async (questions) => {
-    const res = await fetch("http://localhost:5000/vocabularies", {
+    const res = await fetch("https://poralekha-server.vercel.app/vocabularies", {
         method: "POST",
         headers: {
             'content-type': "application/json"

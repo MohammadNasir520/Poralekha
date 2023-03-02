@@ -1,19 +1,24 @@
 .header{
     width: 100%;
-    height: 400px;
-  
-    background-image: url('https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165862108/original/01d807063755c66e73ad359fa2c8787462e938bb/code-javascript-es6-with-react-html-css-bootstrap-git.jpg');
 
+    padding: 20px;
+
+    background-image: url('../../Assets/images/1.png');
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: 100%;
+
     color: white;
     display: flex;
     align-items: center;
+    justify-content: center;
     
 
 }
 .header h4{
     font-size: 3vw;
+}
+.header p{
+    font-size: small;
 }
 .details{
     
@@ -28,5 +33,15 @@
     }
     .header h4{
         font-size: 2vw;
+    }
+    .header{
+      
+        height: 400px;
+      
+
+        background-size: 100%;
+      
+        
+    
     }
 }

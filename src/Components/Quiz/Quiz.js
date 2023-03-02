@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import Option from '../Options/Option';
 import './Quiz.css'
 
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -12,36 +10,62 @@ import AQuiz from '../AQuiz/AQuiz';
 
 
 const Quiz = () => {
-    // const [selected, setSelected] = useState('')
-    // console.log(selected);
-    const [correctCount, setCorrectCount] = useState(0)
+
+
+    const [answered, setAnswered] = useState(0)
+    const [correctAnsCount, setCorrectAnsCount] = useState(0)
+    const [wrongAnsCount, setWrongAnsCount] = useState(0)
+
+
+    const result = { answered, correctAnsCount, wrongAnsCount }
+
+
+    // stored answered option for checking correct anser
+    const [answeredQuestion, setAnsweredQuestion] = useState([])
+    console.log(answeredQuestion)
+
+
 
     let serial = 0;
     const quizDetails = useLoaderData();
+    console.log("quizDeatails", quizDetails)
+
+
     const id = quizDetails[0].id
     console.log(id);
 
-    console.log("quizDeatails", quizDetails)
-    // const { name } = quizDetails.data
+
     const { name } = quizDetails[0].name
 
-    const showToast = (getOption) => {
 
-        toast(getOption.correctAnswer)
-        console.log(getOption)
-
-    }
 
     return (
         <div>
-            <h2>  Take a Quize about : <span className='text-success'>{name}</span> </h2>
-            <h4>Your total Correct Answer: {correctCount}</h4>
+            <h2>  Take a Quiz about : <span className='text-success'>{name}</span> </h2>
+
             <div>
                 {
                     // quizDetails.data.questions.map(question => {
-                    quizDetails[0].questions.map(question => {
+                    quizDetails[0].questions.map((question, index) => {
                         serial++;
-                        return <AQuiz serial={serial} question={question}></AQuiz>
+                        return <AQuiz
+                            key={index}
+                            serial={serial}
+                            question={question}
+                            setAnsweredQuestion={setAnsweredQuestion}
+                            answeredQuestion={answeredQuestion}
+
+
+                            answered={answered}
+                            setAnswered={setAnswered}
+
+                            correctAnsCount={correctAnsCount}
+                            setCorrectAnsCount={setCorrectAnsCount}
+
+
+                            wrongAnsCount={wrongAnsCount}
+                            setWrongAnsCount={setWrongAnsCount}
+                        ></AQuiz>
                     }
 
                         // < div className='question-container border border-primary m-5 py-2 text-light  '
@@ -88,7 +112,7 @@ const Quiz = () => {
 
 
             </div >
-            <Link to="/result" state={{ id }}><button className='btn btn-primary'>Submit</button></Link>
+            <Link to="/result" state={{ id, answeredQuestion, result }}><button className='btn btn-primary'>Submit</button></Link>
         </div >
     );
 };

@@ -132,28 +132,33 @@ import { AuthContext } from '../../Contexte/Authprovider';
 
 
 
-const AQuiz = ({ question, serial }) => {
+const AQuiz = ({ question, serial, setAnsweredQuestion, answeredQuestion,
+    answered, setAnswered,
+    correctAnsCount, setCorrectAnsCount,
+    wrongAnsCount, setWrongAnsCount,
+}) => {
 
     // from context
-    const { answered, setAnswered,
-        correctAnsCount, setCorrectAnsCount,
-        wrongAnsCount, setWrongAnsCount,
-        finalMark, setFinalMark } = useContext(AuthContext)
+    // const { answered,
+    //     setAnswered,
+    //     correctAnsCount, setCorrectAnsCount,
+    //     wrongAnsCount, setWrongAnsCount,
+    //     finalMark, setFinalMark } = useContext(AuthContext)
 
 
-    console.log(correctAnsCount)
+
     const [disabled, setDisabled] = useState(false)
 
 
-
+    //
     const correctAnswer = question.correctAnswer;
-
-
 
     const handleOption = (anseredQestion) => {
 
+        setAnsweredQuestion([...answeredQuestion, { question, anseredQestion }])
+
         setDisabled(true)
-        console.log(anseredQestion)
+
         if (anseredQestion) {
             setAnswered(answered + 1)
         }
@@ -164,7 +169,7 @@ const AQuiz = ({ question, serial }) => {
             return setWrongAnsCount(wrongAnsCount + 1)
         }
     }
-    // console.log('question', question)
+
     return (
         <div className='my-5 '>
             <div className='questions '>
@@ -174,7 +179,13 @@ const AQuiz = ({ question, serial }) => {
             <div className="options-container">
                 {
                     question?.options?.map((option, index) =>
-                        <div key={index} className=' hover:bg-slate-300 md:text-xl lg:text-base rounded'>
+                        <div
+                            key={index}
+
+                            // onClick={() => setAnsweredOption([...answeredOption, option])}
+                            className=' hover:bg-slate-300 md:text-xl lg:text-base rounded'
+                        >
+
                             <input type="radio" name={`question-${serial}`} id={`option-${serial}-${index}`} disabled={disabled ? true : false} onClick={() => { handleOption(option) }} />
                             <label htmlFor={`option-${serial}-${index}`}>{option} </label>
                         </div>
