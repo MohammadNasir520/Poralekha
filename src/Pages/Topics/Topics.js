@@ -34,34 +34,36 @@ const Topics = () => {
     return (
         <div
 
-            className=' text-white topics-container' style={{ minHeight: "70vh", }}
+            className=' text-white topics-container ' style={{ minHeight: "70vh", }}
         >
             {
                 topics.map((topic, index) =>
                     <div
                         key={index}
-                        className='bg-info border-radius-6'
-                        style={{ height: "250px", width: "", borderRadius: "10px" }}
+                        className='bg-sky-500  text-xl font-bold flex justify-center'
+                        style={{ height: "240px", width: "", borderRadius: "10px" }}
 
                     >
+                        <div>
+                            <h2>{topic.topic}</h2>
 
-                        <h2>{topic.topic}</h2>
 
+                            <img style={{ height: "150px" }} className='flex justify-center' src={topic.logo}>
 
-                        <img style={{ height: "150px" }} className='' src={topic.logo}>
+                            </img>
 
-                        </img>
+                            <br />
+                            <Link to={`/quiz/${topic.id} `} state={{ topic }}>
+                                <button
+                                    onClick={() => setLoading(true)}
+                                    className='bg-blue-500 '>
+                                    {
+                                        loading ? "Loading..." : "Start Quiz"
+                                    }
+                                </button>
+                            </Link>
 
-                        <br />
-                        <Link to={`/quiz/${topic.id} `} state={{ topic }}>
-                            <button
-                                onClick={() => setLoading(true)}
-                                className='btn btn-primary mt-2'>
-                                {
-                                    loading ? "Loading..." : "Start Quiz"
-                                }
-                            </button>
-                        </Link>
+                        </div>
                     </div>)
             }
         </div>
