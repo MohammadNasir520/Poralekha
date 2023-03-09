@@ -183,7 +183,7 @@ const AQuiz = ({ question, serial, setAnsweredQuestion, answeredQuestion,
                             key={index}
 
                             // onClick={() => setAnsweredOption([...answeredOption, option])}
-                            className=' hover:bg-slate-300 md:text-xl lg:text-base rounded'
+                            className=' md:text-xl lg:text-base rounded'
                         >
 
                             <input type="radio" name={`question-${serial}`} id={`option-${serial}-${index}`} disabled={disabled ? true : false} onClick={() => { handleOption(option) }} />

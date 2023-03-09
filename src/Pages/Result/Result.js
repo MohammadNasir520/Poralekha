@@ -22,17 +22,19 @@ const Result = () => {
 
             <div style={{ background: 'white', height: "75vh", display: 'grid', placeItems: 'center' }}>
                 <div>
-                    <h3>You have Answered : {answered} questions</h3>
-                    <div className='results'>
-                        <div className='mt-3 bg-info'><h6>correct: {correctAnsCount}</h6></div>
-                        <div className='mt-3 bg-info'><h6>Wrong: {wrongAnsCount}</h6></div>
-                        <div className='mt-3 bg-info'><h6>Negative: {wrongAnsCount} x .50= {negetiveMark}</h6></div>
+                    <h3 className='text-2xl'>You have Answered : {answered} questions</h3>
+                    <div className='results text-2xl '>
+                        <div className='mt-3 bg-cyan-600 text-white font-bold'><h6>correct: {correctAnsCount}</h6></div>
+                        <div className='mt-3 bg-cyan-600 text-white font-bold'><h6>Wrong: {wrongAnsCount}</h6></div>
+                        <div className='mt-3 bg-cyan-600 text-red-200 font-bold'><h6>Negative: {wrongAnsCount} x .50= {negetiveMark}</h6></div>
                     </div>
-                    <h5>Final Marks: {finalMarks}</h5>
+                    <h5 className={finalMarks < 0 ? 'text-red-500 font-bold  text-2xl ' : 'text-green-500 font-bold  text-2xl '}>Final Marks: {finalMarks}</h5>
 
 
                     <Link to={`/coorrectAnswer/${id}`} state={{ id, answeredQuestion }}>
-                        <button >See correct Answer</button>
+                        <button
+                            className='bg-blue-600 text-white p-1'
+                        >See correct Answer</button>
                     </Link>
                 </div>
             </div>

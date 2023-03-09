@@ -10,19 +10,23 @@ const QuizCard = ({ quiz }) => {
 
     return (
         <div className='quiz '>
-            <img src={logo} alt="" />
-            <h2>{name}</h2>
+            <Link
+                to={`/topic/${name}`}
+                onClick={() => setLoading(true)}
+            >
+                <img src={logo} alt="" />
+                <h2>{name}</h2>
 
-            {/* <h6>Total Quiz: {total}</h6> */}
-            {/* <Link to={`/quiz/${id}`}> */}
-            <Link to={`/topic/${name}`}>
-                <button
-                    onClick={() => setLoading(true)}
-                    className='btn btn-primary px-4'>
-                    {
-                        loading ? "Loading..." : " Go to Topics"
-                    }
-                </button>
+                {/* <h6>Total Quiz: {total}</h6> */}
+                {/* <Link to={`/quiz/${id}`}> */}
+
+
+
+
+                {
+                    loading && "Loading..."
+                }
+
             </Link>
         </div>
     );

@@ -13,7 +13,7 @@ const CorrectAnswer = () => {
     // !== answeredQuestion.question.correctAnswer  
     // ${question.correctAnswer === option && "bg-success text-white "}  ${answeredQuestions.map(answeredQuestion => question.question === answeredQuestion.question && answeredQuestion.anseredQestion !== question.question.correctAnswer)
     const ans = answeredQuestions.map(answeredQuestion => answeredQuestion.anseredQestion !== answeredQuestion.question.correctAnswer)
-    if (ans == false) {
+    if (ans === false) {
         console.log("wrong")
 
     } else {
@@ -34,7 +34,8 @@ const CorrectAnswer = () => {
 
                         {
                             question?.options?.map(option => <p
-                                className={`${question.correctAnswer === option && "bg-success text-white "}  ${answeredQuestions.map(answeredQuestion => answeredQuestion.question.question !== question.question) && ""}   option `}
+                                className={`${question.correctAnswer === option ? "bg-green-600 text-white" : 'text-black-500'}  option `}
+                            // className='bg-blue-300 mt-2 option'
                             >{option}</p>)
                         }
                     </div>
