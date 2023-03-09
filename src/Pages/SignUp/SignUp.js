@@ -98,9 +98,9 @@ const SignUp = () => {
                             </div>
 
                             <div className="mb- text-lg w-72 flex flex-col">
-                                <label htmlFor="" className="label text-start">
+                                <p htmlFor="" className=" text-start">
                                     <span className='label-text text-white'>Password</span>
-                                </label>
+                                </p>
                                 <input
                                     className="w-72 rounded border-none bg-emerald-300 bg-opacity-10 px-6 py-1 text-center text-inherit  placeholder-gray-400 shadow-lg outline-none backdrop-blur-md"
                                     type="Password"
