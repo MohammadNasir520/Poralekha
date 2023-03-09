@@ -12,6 +12,7 @@ import Result from './Pages/Result/Result';
 import AddQuestion from './Pages/AddQuestion';
 import CorrectAnswer from './Pages/CorrectAnswer/CorrectAnswer';
 import Topics from './Pages/Topics/Topics';
+import SignUp from './Pages/SignUp/SignUp';
 
 
 
@@ -72,6 +73,10 @@ function App() {
         {
           path: '/topic/:name',
           element: <Topics></Topics>
+        },
+        {
+          path: '/signUp',
+          element: <SignUp />
         },
       ]
 
